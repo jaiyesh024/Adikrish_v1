@@ -1,16 +1,16 @@
 name:Super-Linter
 
-on:push 
+on:workflow_dispatch
 
 jobs:
   super-lint:
     name:lint code base
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
      - name: checkout code
-       uses: action/checkout@v4
+       uses: actions/checkout@v4
      - name: Run super-linter
        uses: github/super-linter@v4
        env:
          DEFAULT_BRANCH: main
-         GITHUB_TOKEN: ${{ secrets_GITHUB_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
